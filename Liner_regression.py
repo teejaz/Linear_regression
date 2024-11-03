@@ -5,8 +5,8 @@ import seaborn as sns
 
 
 companies = pd.read_csv('H:/Programing/New folder/1000_Companies.csv')
-x =companies.iloc[:, :-1].values
-y =companies.iloc[:, 4].values
+x = companies.iloc[:, :-1].values
+y = companies.iloc[:, 4].values
 
 companies.head()
 
