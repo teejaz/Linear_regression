@@ -30,8 +30,25 @@ plt.scatter(sample['SPY'], sample['GOOG'])
 plt.plot(sample['SPY'], trend,'r')
 plt.show()
 
+data = yf.Ticker("SPY").history(period="1y")[["Close"]]
+data['time'] = np.arange(1, len(data)+1)
+
+reg = np.polyfit(data['time'], data["Close"], deg = 1 )
+
+trend = np.polyval(reg, data['time'][-63:])
+std = data['Close'][-63:].std()
+plt.figure(figsize = (10,6))
+plt.plot(data['time'], data['Close'], label = "S&P500")
+plt.plot(data['time'][-63:], trend, 'r--')
+plt.show()
 
 
+
+predict = np.poly1d(reg)
+print(predict(280))
+
+sb.regplot(x='time', y='Close', fit_reg=True, data = data[-63:])
+plt.show()
 print(correlation_matrix)
 
 
