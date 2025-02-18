@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import os
 
-data = pd.read_csv("H:/Programing/New folder/StudentPerformanceFactors.csv")
+data = pd.read_csv("anyCSVfile.csv")
 print(data)
 plt.scatter(data.Tutoring_Sessions, data.Exam_Score)
 plt.show()
